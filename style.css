@@ -1,0 +1,241 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #ffffff;
+    background-image: linear-gradient(#ff000080, #ffa50080);
+}
+
+.text-container {
+    position: absolute;
+    color: #ffffff;
+    margin: 1.25% 25% 0;
+    width: 50%;
+    text-align: center;
+}
+
+.reveal-title, .reveal-title::after {
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    animation-duration: 800ms;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.0, 0.0, 0.25, 1);
+}
+
+.reveal-title {
+    position: relative;
+    font-family: cursive;
+    font-size: 54px;
+    padding: 1.25% 0 2.5%;
+    white-space: nowrap;
+    animation-name: revealTitle;
+}
+
+.reveal-title::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fdf1c2;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    z-index: 2;
+    animation-name: titleOverlay;
+    pointer-events: none;
+}
+
+@keyframes revealTitle {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes titleOverlay {
+    0%, 50% {
+        transform-origin: 0 50%;
+    }
+
+    60% {
+        transform: scaleX(1);
+        transform-origin: 100% 50%;
+    }
+
+    100% {
+        transform: scaleX(0);
+        transform-origin: 100% 50%;
+    }
+}
+
+p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    line-height: 2;
+}
+
+p span {
+    display: block;
+    opacity: 0;
+    animation: showMe 2s forwards 2.5s;
+}
+
+.container {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 500px;
+    width: 500px;
+    opacity: 0;
+    animation: showMe 2s forwards 5s;
+}
+
+@keyframes showMe {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.shadow {
+    position: absolute;
+    left: 0;
+    bottom: 30px;
+    right: 0;
+    height: 60px;
+    width: 320px;
+    background-color: #80808040;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.diya {
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    right: 0;
+    height: 150px;
+    width: 300px;
+    background-color: #fdcf0f;
+    border-radius: 0 0 150px 150px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.line1, .line2 {
+    position: absolute;
+    left: -10px;
+    height: 60px;
+    width: 320px;
+    border: none;
+    border-bottom: 8px solid #ffffff;
+    border-radius: 50%;
+}
+
+.line2 {
+    top: 60px;
+}
+
+.dots {
+    position: absolute;
+    top: 30px;
+    left: -10px;
+    height: 60px;
+    width: 320px;
+    border: none;
+    border-bottom: 10px dotted #fd500a;
+    border-radius: 50%;
+}
+
+.light-flare {
+    position: absolute;
+    left: 0;
+    bottom: 170px;
+    right: 0;
+    height: 60px;
+    width: 300px;
+    background-color: #fd500a;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.light {
+    position: absolute;
+    left: -15px;
+    bottom: 0;
+    height: 330px;
+    width: 330px;
+    background-color: #fff34f40;
+    border-radius: 50%;
+}
+
+.light::before, .light::after {
+    content: "";
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    background-color: #fff34f80;
+    border-radius: 50%;
+    animation: shiningLight 4s linear infinite;
+}
+
+.light::before {
+    bottom: 30px;
+    right: 60px;
+}
+
+.light::after {
+    top: 50px;
+    left: 80px;
+    animation-delay: 1s;
+}
+
+@keyframes shiningLight {
+    50% {
+        transform: scale(0.75);
+        opacity: 0.25;
+    }
+}
+
+.flame {
+    position: absolute;
+    left: 0;
+    bottom: 36px;
+    right: 0;
+    transform: rotate(-45deg);
+    height: 170px;
+    width: 170px;
+    background-color: #fdf1c2;
+    border-radius: 160px 0;
+    margin: auto;
+    animation: burningFlame 4s infinite;
+}
+
+.flame::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 120px;
+    width: 120px;
+    background-color: #ffbd2e80;
+    border-radius: 120px 0;
+}
+
+@keyframes burningFlame {
+    50% {
+        bottom: 42px;
+        transform: rotate(-45deg) scale(1.1);
+    }
+}
